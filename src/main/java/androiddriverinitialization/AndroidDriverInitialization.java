@@ -10,7 +10,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class AndroidDriverInitialization implements AppiumInitializer {
 
-  StartStopAppiumServer appiumServer = new StartStopAppiumServer();
+  AppiumServer appiumServer = new AppiumServer();
+  AppiumDriver<MobileElement> driver;
 
   @Override
   public AppiumDriver<MobileElement> startAppiumDriver() {
@@ -21,7 +22,7 @@ public class AndroidDriverInitialization implements AppiumInitializer {
         System.getProperty("user.dir") + File.separator + "src" + File.separator + "main"
             + File.separator + "resources" + File.separator + "gitTrendingApp.apk");
     capabilities.setCapability(MobileCapabilityType.NO_RESET, false);
-    AppiumDriver<MobileElement> driver = new AndroidDriver<>(
+    driver = new AndroidDriver<>(
         appiumServer.startAppiumServer(), capabilities);
     return driver;
   }
