@@ -1,0 +1,8 @@
+<suite name="Git Trending Automation">
+  <test name="Git Trending_Test" group-by-instances="true"
+    preserve-order="true">
+    <classes>
+      <class name="tests.TrendingTests"/>
+    </classes>
+  </test>
+</suite>

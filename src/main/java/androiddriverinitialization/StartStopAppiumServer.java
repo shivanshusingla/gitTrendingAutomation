@@ -6,14 +6,16 @@ import java.net.URL;
 
 public class StartStopAppiumServer {
 
+  AppiumDriverLocalService driverLocalService = AppiumDriverLocalService
+      .buildService(new AppiumServiceBuilder());
+
   public URL startAppiumServer() {
-    AppiumDriverLocalService driverLocalService = AppiumDriverLocalService
-        .buildService(new AppiumServiceBuilder());
     driverLocalService.start();
     return driverLocalService.getUrl();
   }
-  public void stopAppiumServer(){
 
+  public void stopAppiumServer() {
+    driverLocalService.stop();
   }
 
 }
