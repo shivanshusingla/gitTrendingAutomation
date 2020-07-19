@@ -7,7 +7,7 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import java.util.List;
 
-public class TrendingPage extends BasePage {
+public class GitTrendingPage extends CommonPage {
 
   @AndroidFindBy(id = "ivOptions")
   private AndroidElement optionsMenu;
@@ -33,7 +33,7 @@ public class TrendingPage extends BasePage {
   @AndroidFindBy(xpath = "//android.widget.TextView[contains(@resource-id,'tvStars')]")
   private AndroidElement repoForksCount;
 
-  public TrendingPage(
+  public GitTrendingPage(
       AppiumDriver<? extends MobileElement> driver) {
     super(driver);
   }
@@ -92,9 +92,16 @@ public class TrendingPage extends BasePage {
 
   public void searchRepoInPythonLanguage() {
     int i = 0;
-    while (!WrapperMethods.getText(repoLanguage).equalsIgnoreCase("Python") && i < 6) {
+    while (!WrapperMethods.getText(repoLanguage).equalsIgnoreCase("Python") && i < repoOwnerNames
+        .size()) {
       WrapperMethods.click(repoOwnerNames.get(i));
       i++;
+    }
+    if (!WrapperMethods.getText(repoLanguage).equalsIgnoreCase("Python")) {
+      WrapperMethods.swipe(1, driver);
+      searchRepoInPythonLanguage();
+    } else {
+      return;
     }
   }
 }

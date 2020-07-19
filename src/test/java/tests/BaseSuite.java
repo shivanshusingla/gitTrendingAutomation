@@ -20,6 +20,7 @@ public class BaseSuite {
 
   @AfterSuite(alwaysRun = true)
   public void stopAppiumDriver() {
+    driver.quit();
     Runtime.getRuntime().addShutdownHook(new Thread() {
                                            public void run() {
                                              appiumServerInitialization.stopAppiumServer();
