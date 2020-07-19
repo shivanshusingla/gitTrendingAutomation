@@ -13,12 +13,12 @@ public class BaseSuite {
   AppiumServerInitialization appiumServerInitialization = new AppiumServerInitialization();
   AppiumDriver<MobileElement> driver;
 
-  @BeforeSuite
+  @BeforeSuite(description = "1. Launch attached gitTrending application and Start Appium Driver")
   public void startAppiumDriver() {
     driver = driverInitialization.startAppiumDriver();
   }
 
-  @AfterSuite(alwaysRun = true)
+  @AfterSuite(description = "Stop Appium Server and Driver", alwaysRun = true)
   public void stopAppiumDriver() {
     driver.quit();
     Runtime.getRuntime().addShutdownHook(new Thread() {

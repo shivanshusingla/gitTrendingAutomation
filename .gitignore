@@ -7,6 +7,9 @@
 # Maven Target Folder
 target/
 
+# TestNG Folder
+test-output/
+
 # Log file
 *.log
 

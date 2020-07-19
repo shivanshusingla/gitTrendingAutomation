@@ -1,7 +1,6 @@
 package tests;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.google.common.collect.Ordering;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -72,6 +71,16 @@ public class GitTrendingTests extends BaseSuite {
     System.out.println("Third Repo Language - " + thirdRepoLanguage);
     System.out.println("Third Repo Star Counts - " + thirdRepoStarCounts);
     System.out.println("Third Repo Fork Counts - " + thirdRepoForkCounts);
+  }
+
+  @Test(description = "Verify the sort by name order in a git trending list", priority = 7)
+  public void verifyRepoNameIsInAscendingOrder() {
+    GitTrendingPage gitTrendingPage = new GitTrendingPage(driver);
+    gitTrendingPage.clickOnOverFlowMenu();
+    gitTrendingPage.clickOnSortByNamesOption();
+    Assert.assertTrue(
+        Ordering.<String>natural().isOrdered(gitTrendingPage.getListOfRepoNames()),
+        "Repo names are not sorted in order");
   }
 
 }

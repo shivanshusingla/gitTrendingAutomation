@@ -11,13 +11,13 @@ public class AppiumServerInitialization {
 
   public URL startAppiumServer() {
     driverLocalService.start();
-    System.out.println("--------- Appium Server Started ----------");
+    System.out.println("--------- Appium Server Started -----------");
     driverLocalService.clearOutPutStreams();
     return driverLocalService.getUrl();
   }
 
   public void stopAppiumServer() {
     driverLocalService.stop();
-    System.out.println("--------- Appium Server Closed ----------");
+    System.out.println("--------- Appium Server Closed -----------");
   }
 }
