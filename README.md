@@ -15,7 +15,7 @@
   
 <h1>How to Run this project :</h1>
     <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. Through Maven  :- <q>Run command on Terminal - mvn clean install</q></h3>
-    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Through TestNG :-  <q>Left Click on testng.xml file and run as TestNG XML</q></h3>
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Through TestNG :-  <q>Go to - src/test/resources/testng.xml & then left click on testng.xml file and run as TestNG Suite</q></h3>
     </br>
     
 <h3>Note :- <u><i>Appium must be properly set up and any android device must be properly connected(Check this by using adb devices command)</i></u></h3>
