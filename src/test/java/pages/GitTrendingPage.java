@@ -5,6 +5,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import java.util.LinkedList;
 import java.util.List;
 
 public class GitTrendingPage extends CommonPage {
@@ -14,6 +15,9 @@ public class GitTrendingPage extends CommonPage {
 
   @AndroidFindBy(xpath = "//android.widget.TextView[contains(@resource-id,'title') and contains(@text,'Sort by stars')]")
   private AndroidElement sortByStarsOption;
+
+  @AndroidFindBy(xpath = "//android.widget.TextView[contains(@resource-id,'title') and contains(@text,'Sort by name')]")
+  private AndroidElement sortByNamesOption;
 
   @AndroidFindBy(xpath = "//android.widget.TextView[contains(@resource-id,'tvRepositoryOwnerName')]")
   private List<AndroidElement> repoOwnerNames;
@@ -44,6 +48,10 @@ public class GitTrendingPage extends CommonPage {
 
   public void clickOnSortByStarsOption() {
     WrapperMethods.click(sortByStarsOption);
+  }
+
+  public void clickOnSortByNamesOption() {
+    WrapperMethods.click(sortByNamesOption);
   }
 
   public void clickOnThirdElement() {
@@ -104,4 +112,26 @@ public class GitTrendingPage extends CommonPage {
       return;
     }
   }
+
+  public List<String> getListOfRepoStarCounts() {
+    List<String> starCount = new LinkedList<>();
+    int i = 0;
+    while (i < repoOwnerNames.size()) {
+      WrapperMethods.click(repoOwnerNames.get(i));
+      starCount.add(WrapperMethods.getText(repoStarsCount));
+      i++;
+    }
+    return starCount;
+  }
+
+  public List<String> getListOfRepoNames() {
+    List<String> listOfRepoNames = new LinkedList<>();
+    int i = 0;
+    while (i < repoNames.size()) {
+      listOfRepoNames.add(WrapperMethods.getText(repoNames.get(i)).toLowerCase());
+      i++;
+    }
+    return listOfRepoNames;
+  }
+
 }
