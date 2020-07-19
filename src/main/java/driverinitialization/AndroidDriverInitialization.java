@@ -1,4 +1,4 @@
-package androiddriverinitialization;
+package driverinitialization;
 
 import driverinitializer.AppiumInitializer;
 import io.appium.java_client.AppiumDriver;
@@ -10,7 +10,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class AndroidDriverInitialization implements AppiumInitializer {
 
-  AppiumServer appiumServer = new AppiumServer();
+  AppiumServerInitialization appiumServerInitialization = new AppiumServerInitialization();
   AppiumDriver<MobileElement> driver;
 
   @Override
@@ -22,8 +22,9 @@ public class AndroidDriverInitialization implements AppiumInitializer {
         System.getProperty("user.dir") + File.separator + "src" + File.separator + "main"
             + File.separator + "resources" + File.separator + "gitTrendingApp.apk");
     capabilities.setCapability(MobileCapabilityType.NO_RESET, false);
+    capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60 * 2);
     driver = new AndroidDriver<>(
-        appiumServer.startAppiumServer(), capabilities);
+        appiumServerInitialization.startAppiumServer(), capabilities);
     return driver;
   }
 }

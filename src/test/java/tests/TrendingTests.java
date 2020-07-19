@@ -31,10 +31,10 @@ public class TrendingTests extends BaseSuite {
     trendingPage.clickOnThirdElement();
     thirdRepoOwnerName = trendingPage.getThirdRepoOwnerName();
     thirdRepoName = trendingPage.getThirdRepoName();
-    thirdRepoDescription = trendingPage.getThirdRepoDescription();
-    thirdRepoLanguage = trendingPage.getThirdRepoLanguage();
-    thirdRepoStarCounts = trendingPage.getThirdStarsCount();
-    thirdRepoForkCounts = trendingPage.getThirdForkCount();
+    thirdRepoDescription = trendingPage.getRepoDescription();
+    thirdRepoLanguage = trendingPage.getRepoLanguage();
+    thirdRepoStarCounts = trendingPage.getStarsCount();
+    thirdRepoForkCounts = trendingPage.getForkCount();
   }
 
   @Test(priority = 2)
@@ -47,14 +47,26 @@ public class TrendingTests extends BaseSuite {
   public void verifyElementGotCollapsed() {
     TrendingPage trendingPage = new TrendingPage(driver);
     Assert
-        .assertFalse(trendingPage.checkThirdRepoDescription(), "Repo desciption is still present");
-    Assert.assertFalse(trendingPage.checkThirdRepoLanguage(), "Repo Language is still present");
-    Assert.assertFalse(trendingPage.checkThirdStarsCount(), "Repo star count is still present");
-    Assert.assertFalse(trendingPage.checkThirdForkCount(), "Repo count is still present");
+        .assertFalse(trendingPage.checkRepoDescription(), "Repo desciption is still present");
+    Assert.assertFalse(trendingPage.checkRepoLanguage(), "Repo Language is still present");
+    Assert.assertFalse(trendingPage.checkStarsCount(), "Repo star count is still present");
+    Assert.assertFalse(trendingPage.checkForkCount(), "Repo count is still present");
     System.out.println("Third element got collapsed");
   }
 
   @Test(priority = 4)
+  public void verifyRepoLanguageInPython() {
+    TrendingPage trendingPage = new TrendingPage(driver);
+    trendingPage.searchRepoInPythonLanguage();
+    System.out.println("Python Repo Owner Name - " + trendingPage.getThirdRepoOwnerName());
+    System.out.println("Python Repo Name - " + trendingPage.getThirdRepoName());
+    System.out.println("Python Repo Description - " + trendingPage.getRepoDescription());
+    System.out.println("Python Repo Language - " + trendingPage.getRepoLanguage());
+    System.out.println("Python Repo Star Counts - " + trendingPage.getStarsCount());
+    System.out.println("Python Repo Fork Counts - " + trendingPage.getForkCount());
+  }
+
+  @Test(priority = 5)
   public void printThirdRepoElements() {
     System.out.println("Third Repo Owner Name - " + thirdRepoOwnerName);
     System.out.println("Third Repo Name - " + thirdRepoName);

@@ -1,9 +1,11 @@
 package pages;
 
+import Wrappers.WrapperMethods;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import java.util.List;
 
 public class TrendingPage extends BasePage {
 
@@ -13,23 +15,23 @@ public class TrendingPage extends BasePage {
   @AndroidFindBy(xpath = "//android.widget.TextView[contains(@resource-id,'title') and contains(@text,'Sort by stars')]")
   private AndroidElement sortByStarsOption;
 
-  @AndroidFindBy(xpath = "(//android.widget.TextView[contains(@resource-id,'tvRepositoryOwnerName')])[3]")
-  private AndroidElement thirdRepoOwnerName;
+  @AndroidFindBy(xpath = "//android.widget.TextView[contains(@resource-id,'tvRepositoryOwnerName')]")
+  private List<AndroidElement> repoOwnerNames;
 
-  @AndroidFindBy(xpath = "(//android.widget.TextView[contains(@resource-id,'tvRepositoryName')])[3]")
-  private AndroidElement thirdRepoName;
+  @AndroidFindBy(xpath = "//android.widget.TextView[contains(@resource-id,'tvRepositoryName')]")
+  private List<AndroidElement> repoNames;
 
   @AndroidFindBy(xpath = "//android.widget.TextView[contains(@resource-id,'tvDescription')]")
-  private AndroidElement thirdRepoDescription;
+  private AndroidElement repoDescription;
 
   @AndroidFindBy(xpath = "//android.widget.TextView[contains(@resource-id,'tvLanguage')]")
-  private AndroidElement thirdRepoLanguage;
+  private AndroidElement repoLanguage;
 
   @AndroidFindBy(xpath = "//android.widget.TextView[contains(@resource-id,'tvForks')]")
-  private AndroidElement thirdRepoStarsCount;
+  private AndroidElement repoStarsCount;
 
   @AndroidFindBy(xpath = "//android.widget.TextView[contains(@resource-id,'tvStars')]")
-  private AndroidElement thirdRepoForksCount;
+  private AndroidElement repoForksCount;
 
   public TrendingPage(
       AppiumDriver<? extends MobileElement> driver) {
@@ -37,77 +39,62 @@ public class TrendingPage extends BasePage {
   }
 
   public void clickOnOverFlowMenu() {
-    optionsMenu.click();
+    WrapperMethods.click(optionsMenu);
   }
 
   public void clickOnSortByStarsOption() {
-    sortByStarsOption.click();
+    WrapperMethods.click(sortByStarsOption);
   }
 
   public void clickOnThirdElement() {
-    thirdRepoOwnerName.click();
+    WrapperMethods.click(repoOwnerNames.get(2));
   }
 
   public String getThirdRepoOwnerName() {
-    return thirdRepoOwnerName.getText();
+    return WrapperMethods.getText(repoOwnerNames.get(2));
   }
 
   public String getThirdRepoName() {
-    return thirdRepoName.getText();
+    return WrapperMethods.getText(repoNames.get(2));
   }
 
-  public String getThirdRepoDescription() {
-    return thirdRepoDescription.getText();
+  public String getRepoDescription() {
+    return WrapperMethods.getText(repoDescription);
   }
 
-  public boolean checkThirdRepoDescription() {
-    try {
-      return thirdRepoDescription.isDisplayed();
-    } catch (Exception e) {
-      return false;
+  public boolean checkRepoDescription() {
+    return WrapperMethods.verifyPresenceOfElement(repoDescription);
+  }
+
+  public String getRepoLanguage() {
+    return WrapperMethods.getText(repoLanguage);
+  }
+
+  public boolean checkRepoLanguage() {
+    return WrapperMethods.verifyPresenceOfElement(repoLanguage);
+  }
+
+  public String getStarsCount() {
+    return WrapperMethods.getText(repoStarsCount);
+  }
+
+  public boolean checkStarsCount() {
+    return WrapperMethods.verifyPresenceOfElement(repoStarsCount);
+  }
+
+  public String getForkCount() {
+    return WrapperMethods.getText(repoForksCount);
+  }
+
+  public boolean checkForkCount() {
+    return WrapperMethods.verifyPresenceOfElement(repoForksCount);
+  }
+
+  public void searchRepoInPythonLanguage() {
+    int i = 0;
+    while (!WrapperMethods.getText(repoLanguage).equalsIgnoreCase("Python") && i < 6) {
+      WrapperMethods.click(repoOwnerNames.get(i));
+      i++;
     }
   }
-
-  public String getThirdRepoLanguage() {
-    String thirdRepoLanguageString = null;
-    try {
-      thirdRepoLanguageString = thirdRepoLanguage.getText();
-    } catch (Exception e) {
-      return "!!!!Language is not Empty!!!!";
-    }
-    return thirdRepoLanguageString;
-  }
-
-  public boolean checkThirdRepoLanguage() {
-    try {
-      return thirdRepoLanguage.isDisplayed();
-    } catch (Exception e) {
-      return false;
-    }
-  }
-
-  public String getThirdStarsCount() {
-    return thirdRepoStarsCount.getText();
-  }
-
-  public boolean checkThirdStarsCount() {
-    try {
-      return thirdRepoStarsCount.isDisplayed();
-    } catch (Exception e) {
-      return false;
-    }
-  }
-
-  public String getThirdForkCount() {
-    return thirdRepoForksCount.getText();
-  }
-
-  public boolean checkThirdForkCount() {
-    try {
-      return thirdRepoForksCount.isDisplayed();
-    } catch (Exception e) {
-      return false;
-    }
-  }
-
 }
