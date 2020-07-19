@@ -3,6 +3,9 @@
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <artifactId>gitTrendingAutomation</artifactId>
+  <groupId>com.gitTrending.Testing</groupId>
+  <modelVersion>4.0.0</modelVersion>
+  <version>1.0-SNAPSHOT</version>
 
   <build>
     <plugins>
@@ -14,6 +17,16 @@
         </configuration>
         <groupId>org.apache.maven.plugins</groupId>
         <version>3.8.1</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.18.1</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
       </plugin>
     </plugins>
   </build>
@@ -30,10 +43,5 @@
       <version>7.1.0</version>
     </dependency>
   </dependencies>
-  <groupId>com.gitTrending.Testing</groupId>
-
-  <modelVersion>4.0.0</modelVersion>
-
-  <version>1.0-SNAPSHOT</version>
 
 </project>

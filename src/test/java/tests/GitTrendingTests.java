@@ -9,8 +9,6 @@ import pages.GitTrendingPage;
 
 public class GitTrendingTests extends BaseSuite {
 
-  private static final Logger log = LoggerFactory.getLogger(GitTrendingTests.class);
-
   String thirdRepoOwnerName;
   String thirdRepoName;
   String thirdRepoDescription;
@@ -18,14 +16,14 @@ public class GitTrendingTests extends BaseSuite {
   String thirdRepoStarCounts;
   String thirdRepoForkCounts;
 
-  @BeforeClass
+  @BeforeClass(description = "2. Sort elements on basis of stars")
   public void selectSortByStars() {
     GitTrendingPage gitTrendingPage = new GitTrendingPage(driver);
     gitTrendingPage.clickOnOverFlowMenu();
     gitTrendingPage.clickOnSortByStarsOption();
   }
 
-  @Test(priority = 1)
+  @Test(description = "3. Click on the third element and save expanded item content in a variable", priority = 1)
   public void expandAndStoreThirdItem() {
     GitTrendingPage gitTrendingPage = new GitTrendingPage(driver);
     gitTrendingPage.clickOnThirdElement();
@@ -37,13 +35,13 @@ public class GitTrendingTests extends BaseSuite {
     thirdRepoForkCounts = gitTrendingPage.getForkCount();
   }
 
-  @Test(priority = 2)
+  @Test(description = "4. Click on the same element to collapse it", priority = 2)
   public void collapseThirdItem() {
     GitTrendingPage gitTrendingPage = new GitTrendingPage(driver);
     gitTrendingPage.clickOnThirdElement();
   }
 
-  @Test(priority = 3)
+  @Test(description = "5. Verify element got collapsed", priority = 3)
   public void verifyElementGotCollapsed() {
     GitTrendingPage gitTrendingPage = new GitTrendingPage(driver);
     Assert
@@ -54,7 +52,7 @@ public class GitTrendingTests extends BaseSuite {
     System.out.println("Third element got collapsed");
   }
 
-  @Test(priority = 4)
+  @Test(description = "6. Print the element(s) which source language is Python only.", priority = 4)
   public void verifyRepoLanguageInPython() {
     GitTrendingPage gitTrendingPage = new GitTrendingPage(driver);
     gitTrendingPage.searchRepoInPythonLanguage();
@@ -66,7 +64,7 @@ public class GitTrendingTests extends BaseSuite {
     System.out.println("Python Repo Fork Counts - " + gitTrendingPage.getForkCount());
   }
 
-  @Test(priority = 5)
+  @Test(description = "7. Print the third step variable.", priority = 5)
   public void printThirdRepoElements() {
     System.out.println("Third Repo Owner Name - " + thirdRepoOwnerName);
     System.out.println("Third Repo Name - " + thirdRepoName);

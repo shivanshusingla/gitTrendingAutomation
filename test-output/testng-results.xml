@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Git Trending Automation" duration-ms="29845" started-at="2020-07-19T16:47:18 IST" finished-at="2020-07-19T16:47:48 IST">
+    <groups>
+    </groups>
+    <test name="Git Trending_Test" duration-ms="29845" started-at="2020-07-19T16:47:18 IST" finished-at="2020-07-19T16:47:48 IST">
+      <class name="tests.GitTrendingTests">
+        <test-method status="PASS" signature="startAppiumDriver()[pri:0, instance:tests.GitTrendingTests@568bf312]" name="startAppiumDriver" is-config="true" duration-ms="13081" started-at="2020-07-19T16:47:05 IST" finished-at="2020-07-19T16:47:18 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startAppiumDriver -->
+        <test-method status="PASS" signature="selectSortByStars()[pri:0, instance:tests.GitTrendingTests@568bf312]" name="selectSortByStars" is-config="true" duration-ms="5516" started-at="2020-07-19T16:47:18 IST" description="2. Sort elements on basis of stars" finished-at="2020-07-19T16:47:24 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- selectSortByStars -->
+        <test-method status="PASS" signature="expandAndStoreThirdItem()[pri:1, instance:tests.GitTrendingTests@568bf312]" name="expandAndStoreThirdItem" duration-ms="3248" started-at="2020-07-19T16:47:24 IST" description="3. Click on the third element and save expanded item content in a variable" finished-at="2020-07-19T16:47:27 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- expandAndStoreThirdItem -->
+        <test-method status="PASS" signature="collapseThirdItem()[pri:2, instance:tests.GitTrendingTests@568bf312]" name="collapseThirdItem" duration-ms="357" started-at="2020-07-19T16:47:27 IST" description="4. Click on the same element to collapse it" finished-at="2020-07-19T16:47:28 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- collapseThirdItem -->
+        <test-method status="PASS" signature="verifyElementGotCollapsed()[pri:3, instance:tests.GitTrendingTests@568bf312]" name="verifyElementGotCollapsed" duration-ms="8174" started-at="2020-07-19T16:47:28 IST" description="5. Verify element got collapsed" finished-at="2020-07-19T16:47:36 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyElementGotCollapsed -->
+        <test-method status="PASS" signature="verifyRepoLanguageInPython()[pri:4, instance:tests.GitTrendingTests@568bf312]" name="verifyRepoLanguageInPython" duration-ms="12521" started-at="2020-07-19T16:47:36 IST" description="6. Print the element(s) which source language is Python only." finished-at="2020-07-19T16:47:48 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyRepoLanguageInPython -->
+        <test-method status="PASS" signature="printThirdRepoElements()[pri:5, instance:tests.GitTrendingTests@568bf312]" name="printThirdRepoElements" duration-ms="1" started-at="2020-07-19T16:47:48 IST" description="7. Print the third step variable." finished-at="2020-07-19T16:47:48 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printThirdRepoElements -->
+        <test-method status="PASS" signature="stopAppiumDriver()[pri:0, instance:tests.GitTrendingTests@568bf312]" name="stopAppiumDriver" is-config="true" duration-ms="407" started-at="2020-07-19T16:47:48 IST" finished-at="2020-07-19T16:47:49 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- stopAppiumDriver -->
+      </class> <!-- tests.GitTrendingTests -->
+    </test> <!-- Git Trending_Test -->
+  </suite> <!-- Git Trending Automation -->
+</testng-results>
