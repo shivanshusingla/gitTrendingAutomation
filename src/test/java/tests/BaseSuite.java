@@ -5,6 +5,7 @@ import driverinitialization.AppiumServerInitialization;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 
 public class BaseSuite {
@@ -18,9 +19,13 @@ public class BaseSuite {
     driver = driverInitialization.startAppiumDriver();
   }
 
-  @AfterSuite(description = "Stop Appium Server and Driver", alwaysRun = true)
+  @AfterTest(description = "Stop Appiumß Driver")
   public void stopAppiumDriver() {
     driver.quit();
+  }
+
+  @AfterSuite(description = "Stop Appium Server", alwaysRun = true)
+  public void stopAppiumServer() {
     Runtime.getRuntime().addShutdownHook(new Thread() {
                                            public void run() {
                                              appiumServerInitialization.stopAppiumServer();
