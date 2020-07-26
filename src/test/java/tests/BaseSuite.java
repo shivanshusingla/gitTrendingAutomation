@@ -19,7 +19,7 @@ public class BaseSuite {
     driver = driverInitialization.startAppiumDriver();
   }
 
-  @AfterTest(description = "Stop Appium Driver")
+  @AfterTest(description = "Stop Appium Driver", alwaysRun = true)
   public void stopAppiumDriver() {
     driver.quit();
   }
