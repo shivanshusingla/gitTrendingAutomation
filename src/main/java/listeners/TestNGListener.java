@@ -12,14 +12,16 @@ public class TestNGListener implements ITestListener {
   @Override
   public void onTestStart(ITestResult iTestResult) {
     System.out.println(
-        "Test '" + iTestResult.getName() + "' and Test Description '" + iTestResult.getMethod()
+        "Test Name - '" + iTestResult.getName() + "' and Test Description - '" + iTestResult
+            .getMethod()
             .getDescription()
             + "' Started on '" + new Date() + "'");
   }
 
   @Override
   public void onTestSuccess(ITestResult iTestResult) {
-    System.out.println("Test '" + iTestResult.getName() + "' Passed on '" + new Date() + "'");
+    System.out
+        .println("Test Name - '" + iTestResult.getName() + "' Passed on '" + new Date() + "'");
   }
 
   @Override

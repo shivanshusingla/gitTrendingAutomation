@@ -105,11 +105,11 @@ public class GitTrendingPage extends CommonPage {
       WrapperMethods.click(repoOwnerNames.get(i));
       i++;
     }
-    if (!WrapperMethods.getText(repoLanguage).equalsIgnoreCase("Python")) {
+    if (WrapperMethods.getText(repoLanguage).equalsIgnoreCase("Python")) {
+      return;
+    } else {
       WrapperMethods.swipe(1, driver);
       searchRepoInPythonLanguage();
-    } else {
-      return;
     }
   }
 
